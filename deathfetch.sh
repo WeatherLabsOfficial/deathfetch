@@ -1,3 +1,9 @@
+#!/bin/bash
+
+clear
+
+echo -e "\e[1;31m"
+cat <<"EOF"
               ______
            .-'      '-.
          .'            '.
@@ -12,21 +18,23 @@
             ||  || ||
             ||__||_||
            /_|__|__|_\
+EOF
+echo -e "\e[0m"
 
-👤  User:      root
-🖥️  Host:      deathcloud
-🧠  OS:        Ubuntu 24.04.2 LTS
-🧬  Kernel:    6.11.0-1018-azure
-⏳  Uptime:    up 3 hours, 16 minutes
-🧮  CPU:       AMD EPYC 7763
-🧵  RAM:       1.46G / 15G
-💾  Disk:      4.7G / 72G
-🌐  IP:        10.1.0.105
-🏗️  Arch:      x86_64
-📦  Packages:  1312
-💻  Shell:     bash
-
-────────────────────────────────────────────
-⚡ Made by: Death Saif
-🌐 Discord: https://discord.gg/r2bvDt2aUC
-────────────────────────────────────────────
+echo "👤  User:      $USER"
+echo "🖥️  Host:      $(hostname)"
+echo "🧠  OS:        $(lsb_release -ds 2>/dev/null || cat /etc/os-release | grep PRETTY_NAME | cut -d '=' -f2 | tr -d '\"')"
+echo "🧬  Kernel:    $(uname -r)"
+echo "⏳  Uptime:    $(uptime -p)"
+echo "🧮  CPU:       $(grep -m 1 'model name' /proc/cpuinfo | cut -d ':' -f2 | xargs)"
+echo "🧵  RAM:       $(free -h | awk '/Mem:/ {print $3 " / " $2}')"
+echo "💾  Disk:      $(df -h --output=used,size / | tail -1 | xargs | sed 's/ / \/ /')"
+echo "🌐  IP:        $(hostname -I | cut -d' ' -f1)"
+echo "🏗️  Arch:      $(uname -m)"
+echo "📦  Packages:  $(dpkg -l | wc -l)"
+echo "💻  Shell:     $SHELL"
+echo
+echo "────────────────────────────────────────────"
+echo "⚡ Made by: Death Saif"
+echo "🌐 Discord: https://discord.gg/r2bvDt2aUC"
+echo "────────────────────────────────────────────"
