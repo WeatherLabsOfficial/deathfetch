@@ -60,7 +60,8 @@
 
 Paste this into your terminal:
 
-```wget -qO- https://raw.githubusercontent.com/WeatherLabsOfficial/deathfetch/main/install.sh | bash
+```
+wget -qO- https://raw.githubusercontent.com/WeatherLabsOfficial/deathfetch/main/install.sh | bash```
 
 🧾 Requirements
 To use deathfetch, your system needs the following:
